@@ -1,0 +1,9 @@
+@if(breadcrumbs().length > 0) {
+    <div class="breadcrumb">
+        @for(breadcrumb of breadcrumbs(); track breadcrumb.path; let i = $index) {
+            <div class="breadcrumb__item" (click)="pathSelected.emit(breadcrumb.path)">
+                {{ breadcrumb.name }}
+            </div>
+        }
+    </div>
+}

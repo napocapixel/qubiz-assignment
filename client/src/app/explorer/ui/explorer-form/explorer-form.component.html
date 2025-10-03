@@ -1,0 +1,4 @@
+<form [formGroup]="explorerForm" (ngSubmit)="onSubmit()" class="explorer-form">
+  <input class="explorer-form__input" type="text" formControlName="path" placeholder="Enter a file name" />
+  <button class="explorer-form__button" type="submit" [disabled]="!explorerForm.valid">Search</button>
+</form>

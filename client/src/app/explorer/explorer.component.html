@@ -1,0 +1,26 @@
+<div class="explorer">
+    <h1 class="explorer__title">File Explorer</h1>
+    <app-explorer-form 
+        [value]="searchText()"
+        (pathSubmitted)="searchText.set($event)">
+    </app-explorer-form>
+    <app-breadcrumb 
+        [breadcrumbs]="breadcrumbs()" 
+        (pathSelected)="searchText.set($event)">
+    </app-breadcrumb>
+
+     @if(files$ | async; as files) {
+        @if(errorMessage) {
+            <div class="explorer__error"><i>Ups... {{ errorMessage }}</i></div>
+        } @else {
+            <h2 class="explorer__subtitle">Files</h2>
+            @for(file of files | fileType: fileTypeEnum.FILE; track file.name) {
+                <p>{{ file.name }}</p>
+            }
+            <h2 class="explorer__subtitle">Directories</h2>
+            @for(file of files | fileType: fileTypeEnum.DIRECTORY; track file.name) {
+                <button (click)="searchText.set(file.path)">{{ file.name }}</button>
+            }
+        }
+    }
+</div>
