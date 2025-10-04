@@ -5,8 +5,7 @@
     &__item {
         color: #fff;
         display: block;
-        background: #a5d6f9;
-        text-decoration: none;
+        background: #c4e7ff;
         position: relative;
         height: 40px;
         line-height: 40px;
@@ -14,13 +13,14 @@
         margin-right: 23px;
         transition: background-color 0.2s ease;
         color: #1178c2;
-  
+        user-select: none;
+        
         &:before,
         &:after {
           content: '';
           position: absolute;
           top: 0;
-          border: 0 solid #a5d6f9;
+          border: 0 solid #c4e7ff;
           border-width: 20px 10px;
           width: 0;
           height: 0;
@@ -35,19 +35,19 @@
         &:after {
           left: 100%;
           border-color: transparent;
-          border-left-color: #a5d6f9;
+          border-left-color: #c4e7ff;
         }
   
         &:hover {
-          background-color: #62afe6;
+          background-color: #9bd5fd;
           cursor: pointer;
   
           &:before {
-            border-color: #62afe6;
+            border-color: #9bd5fd;
             border-left-color: transparent;
           }
           &:after {
-            border-left-color: #62afe6;
+            border-left-color: #9bd5fd;
           }
         }
     }

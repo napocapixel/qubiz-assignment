@@ -1,0 +1,18 @@
+<div class="files">
+    @for(file of files() | fileType: fileTypeEnum.FILE; track file.name) {
+        <div class="files__item">
+            <p>📄 {{ file.name }}</p>
+            <p class="files__file-date">{{ file.creationDate | date: 'dd/MM/yyyy HH:mm' }}</p>
+        </div>
+    }
+</div>
+
+<div class="directories">
+    @for(file of files() | fileType: fileTypeEnum.DIRECTORY; track file.name) {
+        <button 
+            class="directories__item" 
+            (click)="pathSelected.emit(file.path)">
+            📁 {{ file.name }}
+        </button>
+    }
+</div>
