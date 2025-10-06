@@ -52,8 +52,21 @@ This project contains a file explorer application with an Angular frontend and N
 - `server/` - Node.js/Express backend application
 - `client/` - Angular frontend application
 
-## Development
+## How to use the app?
 
-- Backend runs on development mode with hot reload using nodemon
-- Frontend runs on Angular development server with live reload
-- Both applications should be running simultaneously for full functionality
+1. **Enter a directory path**: In the File Explorer input field, type the full path to any directory on your computer (e.g., `C:\Users\YourName\Documents`)
+
+2. **Search for files**: Click the "Search" button to explore the contents of the specified directory
+
+3. **Navigate directories**: 
+   - Click on any folder to navigate into it
+   - Use the breadcrumb navigation to go back to parent directories
+   - The current path is always displayed at the top
+
+4. **View file details**: Click on any file to see detailed information including:
+   - File name and extension
+   - File size
+   - File type
+   - Last modified date
+
+5. **Explore your system**: The app allows you to browse through your entire file system, making it easy to find your files
