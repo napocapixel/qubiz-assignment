@@ -1,0 +1,17 @@
+<div class="details">
+    <div class="details__header">
+        <h1>Details for: {{ path() }}</h1>
+        <button class="details__header-button" (click)="goBack()">✖️</button>
+    </div>
+
+    @if((fileInfo$ | async); as fileInfo) {
+        @if(errorMessage()) {
+            <p><i>Ups... {{ errorMessage() }}</i></p>
+        } @else {
+            <p>Name: {{ fileInfo.name }}</p>
+            <p>Size: {{ fileInfo.size | fileSize }}</p>
+            <p>Creation Date: {{ fileInfo.creationDate | date: 'dd/MM/yyyy HH:mm' }}</p>
+            <p>Last Modified: {{ fileInfo.lastModified | date: 'dd/MM/yyyy HH:mm' }}</p>
+        }
+    }
+</div>

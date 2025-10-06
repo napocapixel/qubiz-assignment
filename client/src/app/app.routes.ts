@@ -6,6 +6,10 @@ export const routes: Routes = [
     loadComponent: () => import('./explorer/explorer.component'),
    },
    {
+    path: 'details',
+    loadComponent: () => import('./details/details.component'),
+   },
+   {
     path: '',
     redirectTo: 'explorer',
     pathMatch: 'full'

@@ -1,6 +1,6 @@
 <div class="files">
     @for(file of files() | fileType: fileTypeEnum.FILE; track file.name) {
-        <div class="files__item">
+        <div class="files__item" (click)="navigateToDetails(file.path)">
             <p>📄 {{ file.name }}</p>
             <p class="files__file-date">{{ file.creationDate | date: 'dd/MM/yyyy HH:mm' }}</p>
         </div>

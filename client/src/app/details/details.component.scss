@@ -1,0 +1,13 @@
+.details {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__header-button {
+        font-size: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+}

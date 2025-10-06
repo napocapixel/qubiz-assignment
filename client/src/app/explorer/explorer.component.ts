@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from "@angular/core";
+import { Component, computed, inject, OnDestroy, signal } from "@angular/core";
 import { FilesService } from "../shared/data-access/files.service";
 import { ExplorerFormComponent } from "./ui/explorer-form/explorer-form.component";
 import { FileInfo } from "../shared/models/file-info.model";
@@ -7,6 +7,7 @@ import { AsyncPipe } from "@angular/common";
 import { toObservable } from "@angular/core/rxjs-interop";
 import { BreadcrumbComponent } from "./ui/breadcrumb/breadcrumb.component";
 import { FilesComponent } from "./ui/files/files.component";
+import { STORAGE_SEARCH_TEXT } from "../shared/constants/storage";
 
 @Component({
   selector: 'app-explorer',
@@ -19,10 +20,10 @@ import { FilesComponent } from "./ui/files/files.component";
     FilesComponent
   ]
 })
-export default class ExplorerComponent {
+export default class ExplorerComponent implements OnDestroy {
     private filesService = inject(FilesService);
 
-    searchText = signal<string>('C:\\Users');
+    searchText = signal<string>(sessionStorage.getItem(STORAGE_SEARCH_TEXT) || '');
     errorMessage = signal<string>('');
     breadcrumbs = computed(() => this.searchText().length > 0 ? this.searchText().split('\\').map((name, index, array) => ({
         name,
@@ -42,4 +43,8 @@ export default class ExplorerComponent {
             )
         )
     );
+
+    ngOnDestroy(): void {
+        sessionStorage.setItem(STORAGE_SEARCH_TEXT, this.searchText());
+    }
 }
